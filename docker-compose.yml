@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  auth-service:
+    build:
+      context: ./auth
+    ports:
+      - '3001:3001'
+    networks:
+      - task-network
+  task-service:
+    build:
+      context: ./task
+    ports:
+      - '3002:3002'
+    networks:
+      - task-network
+  notification-service:
+    build:
+      context: ./notification
+    ports:
+      - '3003:3003'
+    networks:
+      - task-network
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+    networks:
+      - task-network
+networks:
+  task-network:
+    driver: bridge
