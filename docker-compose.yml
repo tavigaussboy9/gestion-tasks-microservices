@@ -22,7 +22,7 @@ services:
     networks:
       - task-network
   mongo:
-    image: mongo:6.0.0
+    image: mongo:6.0.1
     ports:
       - '27017:27017'
     networks:
